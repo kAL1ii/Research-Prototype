@@ -1,0 +1,313 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+* {
+    list-style: none;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:'Poppins', sans-serif;
+}
+/* Navigation Bar */
+.navbar {
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    top: 0;
+    width: 100%;
+    height: 62px;
+    z-index: 2;
+    padding: 0px 30px 0px 20px;
+    background: #0f63a1;
+    color: white;
+}
+/* Navigation bar STI Title */
+.title-text {
+    color: yellow;
+    font-weight: 900; 
+    margin-top: 2px;
+    font-size: 40px; 
+}
+/* Navigation Items is the Icons  */
+.navbar_items > ul {
+    display:flex;
+}
+.navbar_items ul li {
+    position: relative;
+}
+/* Dropdown for Moreoption Icon the fas fa angle down  */
+.dropdown_menu hr {
+    border: 1px  solid #9a9898;
+}
+.navbar_items ul li a {
+    display:block;
+    color: white;
+    font-size: 25px;
+    width: 100px;
+    height: 62px;
+    text-align: center;
+    padding: 15px 10px;
+}
+/* Highlight color for Navbar Icon */
+.navbar_items ul li a:hover, 
+.navbar ul li.active {
+    background-color: rgba(0,0,0,0.2);
+}
+.navbar .dropdown_menu ul li a:hover,
+.navbar .dropdown_menu ul li a.active   {
+    background-color: #BFC0C0;
+}
+/* To hide the Dropdown Box */
+.navbar_items .dropdown_menu {
+    position: absolute;
+    top: 75px;
+    left: -100px;
+    display: none;
+    border: 2px solid #9a9898;
+    border-radius: 5px;
+}
+/* The Switch between Display None and Display Block */
+.navbar_items ul li a.a_parent.active + .dropdown_menu {
+    display: block;
+}
+/* Dropdown Contents */
+.navbar_items .dropdown_menu ul li a {
+    width: 218px;
+    background: rgb(204, 204, 204);
+    border-radius: 1.7px;
+    color: black;
+    font-size: 20px;
+    text-align:center;
+    padding: 10px;
+}
+/* Pointy arrow at the top of the Dropdown box */
+.navbar .dropdown_menu:before {
+    content: "";
+    position: absolute;
+    top: -29;
+    left:130px;
+    z-index: 5;
+    border: 15px solid;
+    border-color: transparent transparent rgb(204, 204, 204) transparent;
+}
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    left: 0;
+    width: 190px;
+    height: 100%;
+    background-color: #2C384A;
+    list-style: none;
+}
+/* Sidebar Menu Text */
+.sidebar .text-menu {
+    margin: 23px 0px 20px 0px;
+    color: white;
+    text-align: center;
+    line-height: 60px;
+    font-size: 30px;
+}
+/* Sidebar Design  1 */
+.sidebar ul a{
+    display: block;
+    line-height: 65px;
+    font-size: 25px;
+    color: white;
+    padding: 20px 0px 20px 20px;
+    margin: 2px 0px;
+    text-decoration: none;
+    cursor: pointer;
+}
+/* Sidebar Highlighter */
+.sidebar ul li:hover {
+    background-color: rgba(0,0,0,0.2);
+}
+.sidebar ul li.active {
+    background-color: rgba(0,0,0,0.2);
+}
+/* Sidebar Design  1 */
+.sidebar ul a i {
+    margin-right: 16px;
+}
+/* Main content is the box that has the page where we switch divs to show different UIs */
+.maincontent {
+    margin-left: 191px;
+    margin-top: 60px;
+}
+/* Page is used to display them as none and later change to block by Javascript */
+.page {
+    display: none;
+    padding: 5px 0px 5px 0px;
+}
+/* This is the Product Page CSS */
+.table {
+    width: 100%;
+    border: 1px solid black;
+}
+
+.table_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 16px;
+    background-color: rgb(240, 240, 240);
+}
+
+.table_header p {
+    color: #000000;
+}
+
+button {
+    outline: none;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    padding: 10px;
+    color: #ffffff;
+}
+
+td button:nth-child(1) {
+    background-color: #0298cf;
+}
+
+td button:nth-child(2) {
+    background-color: #f80000;
+}
+
+.add_new {
+    padding: 10px 20px;
+    color: #ffffff;
+    background-color: #0298cf;
+}
+
+.table_section {
+    height: 638px;
+    overflow: auto;
+}
+
+table {
+    width: 100%;
+    table-layout: fixed;
+    min-width: 900px;
+    border-collapse: collapse;
+}
+
+thead th {
+    position: sticky;
+    top: 0;
+    background-color: #f6f9fc;
+    color: #8493a5;
+    font-size: 15px;
+}
+
+th,td {
+    border-bottom: 1px solid #dddddd;
+    padding: 10px 20px;
+    word-break: break-all;
+    text-align: center;
+}
+
+td img {
+    height: 60px;
+    width: 60px;
+    object-fit: cover;
+    border-radius: 15px;
+    border: 5px solid #ced0d2;
+}
+
+tr:hover td {
+    color: #0298cf;
+    cursor: pointer;
+    background-color: #f6f9fc;
+}
+
+.add_product {
+    display: flex;
+    justify-content: end;
+    width: 100%;
+    padding: 10px 20px;
+    background: #8493a5;
+}
+
+::-webkit-scrollbar {
+    height: 5px;
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgb(0,0,0,0.3);
+}
+
+::-webkit-scrollbar-thumb {
+    box-shadow: inset 0 0 6px rgb(0,0,0,0.3);
+}
+.box-box {
+    margin-left: 200px;
+    width: 20%;
+    height: 80vh;
+    border: 1px solid black;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    background-color: rgb(0, 144, 206);
+    justify-content: center;
+}
+.box {
+    margin-top:  calc(5vh + 20px);;
+    margin-left: calc(20vh + 20px);
+    width: 200%;
+    height: 64vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+form {
+    width: 90%;
+    max-width: 600px;
+}
+.input-group {
+    margin-bottom: 30px;
+    position: relative;
+}
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    outline: 0;
+    border: 1px solid whitesmoke;
+    color: black;
+    background: rgb(225, 222, 216);
+    font-size: 15px;
+}
+label {
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 10px;
+    color: #fff;
+    cursor: text;
+    transition: 0.2s;
+}
+.productmanage-btn {
+    padding: 10px 0;
+    color: #fff;
+    outline: none;
+    background: #0697ff;
+    border: 1px solid #fff;
+    width: 20%;
+    cursor: pointer;
+}
+input:focus~label,
+input:valid~label,
+textarea:focus~label,
+textarea:valid~label {
+    top: -35px;
+    font-size: 14px;
+}
+.box-box form p {
+    margin-bottom: 60px;
+    font-size: 30px;
+    font-weight: 600;
+    color: #fff;
+    text-align: center;
+}
