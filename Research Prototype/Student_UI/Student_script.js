@@ -30,16 +30,7 @@ function showPage(pageName) {
   document.getElementById(pageName).style.display = "block";
 }
 
-//Switch between Table and ProductMangement UI
-function toggleDivs() {
-  var table_id = document.getElementById("table_id");
-  var ProductManage = document.getElementById("ProductManage");
-
-  if (table_id.style.display === "none") {
-    table_id.style.display = "block";
-    ProductManage.style.display = "none";
-  } else {
-    table_id.style.display = "none";
-    ProductManage.style.display = "block";
-  }
+//This is the save order button that when clicked it displays an order saved message
+function saveOrder() {
+  alert('Order saved!');
 }
