@@ -1,0 +1,280 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+* {
+    list-style: none;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:'Poppins', sans-serif;
+}
+body {
+    background:linear-gradient(#ffffff,#ffffff, #89cff06a);
+    background-color: #ffffff;
+}
+/* Navigation Bar */
+.navbar {
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    top: 10;
+    width: 100%;
+    height: 75px;
+    z-index: 2;
+    padding: 0px 30px 0px 20px;
+    background: #246BCE;
+    color: white;
+    border-radius: 100px;
+}
+/* Navigation bar STI Title */
+.title-text {
+    color: whitesmoke;
+    font-weight: 900; 
+    margin-left: 15px;
+    margin-top: 2px;
+    font-size: 30px; 
+    letter-spacing: 1px;
+}
+/* Navigation Items is the Icons  */
+.navbar_items > ul {
+    display:flex;
+}
+.navbar_items ul li {
+    position: relative;
+}
+/* Line for Dropdown Seperation */
+.dropdown_menu hr {
+    border: 3px  solid #00000000;
+}
+.navbar_items ul li a {
+    display:block;
+    color: white;
+    font-size: 20px;
+    width: 100px;
+    height: 62px;
+    text-align: center;
+    padding: 20px 10px;
+}
+/* Highlight color for Navbar Icon */
+.navbar_items ul li a:hover, 
+.navbar ul li.active {
+    background-color: #80b5ff2e;
+    border-radius: 10px;
+}
+.navbar .dropdown_menu ul li a:hover,
+.navbar .dropdown_menu ul li a.active   {
+    color: white;
+    background-color: #246BCE;
+}
+/* Dropdown box is hidden/display none */
+.navbar_items .dropdown_menu {
+    position: absolute;
+    top: 75px;
+    left: -100px;
+    display: none;
+    border:none;
+    border-radius: 10px;
+}
+/* The Switch between Display None and Display Block */
+.navbar_items ul li a.a_parent.active + .dropdown_menu {
+    display: block;
+}
+/* Dropdown Contents */
+.navbar_items .dropdown_menu ul li a {
+    width: 218px;
+    background: #ffffff;
+    border-radius: 10px;
+    color: #246BCE;
+    font-size: 17px;
+    text-align:center;
+    padding: 15px;
+    box-shadow: 0 5px 5px #246bce27; 
+}
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    background-color: #f0f8ff6f;
+    list-style: none;
+    box-shadow: 0 20px 35px rgb(0, 0, 0, 0.1);
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.sidebar .icon-menu {
+    margin: 23px 0px 20px 0px;
+    padding: 25px;
+    color: #246BCE;
+    border-radius: 100px;
+    text-align: center;
+    line-height: 60px;
+    font-size: 25px;
+}
+/* Sidebar Design  1 */
+.sidebar ul a{
+    display: block;
+    line-height: 65px;
+    font-size: 15px;
+    color: #246BCE;
+    padding: 15px 0px 15px 15px;
+    margin: 2px 0px;
+    text-decoration: none;
+    cursor: pointer;
+}
+/* Sidebar Highlighter */
+.sidebar ul li:hover,
+.sidebar ul li.active {
+    background-color: #246bce32;
+    border-radius: 10px;
+}
+/* Sidebar Design  2 */
+.sidebar ul a i {
+    margin-right: 16px;
+}
+/* Main content is the box that has the page where we switch divs to show different UIs */
+.maincontent {
+    margin-left: 252px;
+    margin-top: 81px;
+    color: #55606c;
+}
+/* Page is used to display them as none and later change to block by Javascript */
+.page {
+    display: none;
+    padding: 5px 0px 5px 0px;
+}
+/* This is the Product Page CSS */
+.product_container {
+    width: 100%;
+    border-radius: 20px;
+    background:linear-gradient(#246bce,#ffffff,#ffffff,#ffffff);
+    margin-right: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.Products_table_section {
+    height: 435px;
+    overflow: auto;
+}
+
+
+.Products_table_header {
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-left: 30px;
+    color: #ffffff;
+}
+
+.Products_table_header p {
+    color: #ffffff;
+    font-weight: 1000;
+}
+
+.Products_table {
+    width: 100%;
+    table-layout: fixed;
+    min-width: 900px;
+    border-collapse: collapse;
+}
+
+.Products_table tbody{
+    width: 95%;
+    background-color: white ;
+}
+
+.product_container thead th {
+    position: sticky;
+    top: 0;
+    background-color: #f6f9fc;
+    color: #8493a5;
+    font-size: 15px;
+}
+
+.product_container th,td {
+    border-bottom: 1px solid #dddddd;
+    padding: 10px 20px;
+    word-break: break-all;
+    text-align: center;
+}
+
+.product_container td img {
+    height: 60px;
+    width: 60px;
+    object-fit: cover;
+    border-radius: 15px;
+    border: 5px solid #ced0d2;
+}
+
+.product_container tr:hover td {
+    color: #0298cf;
+    cursor: pointer;
+    background-color: #f6f9fc;
+}
+
+.Products_table input {
+    width: 22px;
+    height: 22px;
+}
+
+.Products_table button {
+    outline: none;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    padding: 10px;
+    color: #ffffff;
+}
+.Products_table td button:nth-child(1) {
+    background-color: #ffffff;
+    box-shadow: 2px 5px 5px #246bce21; 
+}
+.Products_table td button:nth-child(2) {
+    background-color: #ffffff;
+    box-shadow: 2px 5px 5px #246bce21; 
+}
+
+.reserve_confirmbtn {
+    padding: 0;
+    border: none;
+    background: none;
+    border-radius: 5px;
+    padding: 10px 30px;
+    color: #246BCE;
+    background-color: #ffffff;
+    box-shadow: 0 3px 4px #246bce37;
+}
+.reserve_confirmbtn:hover {
+    color: #ffffff;
+    background-color: #246BCE;
+}
+
+.serve_products {
+    display: flex;
+    justify-content: end;
+    width: 100%;
+    padding: 10px 20px;
+    background: #246bce17;
+    border-radius: 0 0 10px 10px;
+}
+
+::-webkit-scrollbar {
+    height: 5px;
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgb(0,0,0,0.3);
+}
+
+::-webkit-scrollbar-thumb {
+    box-shadow: inset 0 0 6px rgb(0,0,0,0.3);
+}
+.popup  {
+    display: none;
+}
