@@ -10,16 +10,8 @@
                 <h1 class="title-text">STI Bookstore</h1>
                 <div class="navbar_items">
                     <ul>
-                        <!-- Notification Icon to Notification List -->
-                        <li class="notif_box"><a href="#" class="a_parent">
-                            <div class="wrap">
-                                <span class="nav_icon">
-                                    <i class="fa-solid fa-bell"></i>
-                                </span> 
-                            </div>
-                        </a></li>
-                        <!-- Profile Icon to Profile Page -->
-                        <li><a href="#" class="a_parent" onclick="showPage('Profile')"><i class="fa-solid fa-user"></i></a></li>
+                        <!-- Add to Cart Icon to Add to Cart Page -->
+                        <li class="addtocart_box"><a href="#" class="a_parent" onclick="showPage('addtocart')"><i class="fa fa-shopping-cart"></i></a></li>
                         <!--  Moreoption Icon for Dropdown -->
                         <li class="moreoption_box"><a href="#" class="a_parent">
                             <div class="wrap">
@@ -45,23 +37,23 @@
                     </ul>
                 </div>
             </div>
-            <div class="sidebar">
-                <h2 class="icon-menu">
-                    <i class="fa-solid fa-bars"></i>
-                </h2>
-                <ul>
-                    <!--  Sidebar Home Button to Home Page -->
-                    <li><a href="#" onclick="showPage('Home')"><i class="fa-solid fa-home"></i>Home</a></li>
-                     <!--  Sidebar Products Button to Products Page -->
-                    <li><a href="#" onclick="showPage('Products')"><i class="fa-solid fa-tag"></i>Products</a></li>
-                </ul>
-            </div>
        </header>
        <main>
-            <div class="maincontent" id="maincontent">
-                <!-- The Profile Page -->
-                <div class="page" id="Profile">
-                    <h1>Hello User</h1>
+            <section class="maincontent" id="maincontent">
+                <aside class="sidebar">
+                    <h2 class="icon-menu">
+                        <i class="fa-solid fa-bars"></i>
+                    </h2>
+                    <ul>
+                        <!--  Sidebar Home Button to Home Page -->
+                        <li><a href="#" onclick="showPage('Home')"><i class="fa-solid fa-home"></i>Home</a></li>
+                         <!--  Sidebar Products Button to Products Page -->
+                        <li><a href="#" onclick="showPage('Products')"><i class="fa-solid fa-tag"></i>Products</a></li>
+                    </ul>
+                </aside>
+                <!-- The Add to Cart Page -->
+                <div class="page" id="addtocart">
+                    <h1>Add to Cart</h1>
                 </div>
                 <!-- The Home Page -->
                 <div class="page" id="Home">
@@ -186,7 +178,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
         </main>
        <footer>
         

@@ -43,3 +43,80 @@ function toggleDivs() {
     ProductManage.style.display = "block";
   }
 }
+
+//edit the product name and description
+function editProduct(productId) {
+  var row = document.querySelector(`tr[data-product-id="${productId}"]`);
+  var productName = row.querySelector('td:nth-child(3)');
+  var price = row.querySelector('td:nth-child(4)');
+  var description = row.querySelector('td:nth-child(5)');
+  var size = row.querySelector('td:nth-child(6)');
+  
+  productName.contentEditable = true;
+  price.contentEditable = true;
+  description.contentEditable = true;
+  size.contentEditable = true;
+  productName.focus();
+}
+
+function deleteProduct(button) {
+  var row = button.closest('tr');
+  row.remove();
+}
+
+//Product management size option toggle
+function toggleSizes() {
+  var sizeOptions = document.getElementById('size-options');
+  sizeOptions.classList.toggle('show');
+}
+
+// Event listener for the size toggle button
+var sizeToggle = document.getElementById('size-toggle');
+sizeToggle.addEventListener('change', toggleSizes);
+
+//highlight for size available
+var sizeButtons = document.getElementsByClassName("sizebtn");
+for (var i = 0; i < sizeButtons.length; i++) {
+  sizeButtons[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+  });
+}
+//reset button for productmangement
+function resetSizes() {
+  var sizeButtons = document.getElementsByClassName("sizebtn");
+  for (var i = 0; i < sizeButtons.length; i++) {
+    sizeButtons[i].classList.remove("active");
+  }
+}
+
+//save button for productmanagement
+function saveNewProduct() {
+
+  var productNameInput = document.getElementById("name");
+  var productDescriptionInput = document.getElementById("Description");
+  var productPriceInput = document.getElementById("price");
+  
+  if (productNameInput.value && productDescriptionInput.value && productPriceInput.value) {
+    // Clear the input fields
+    productNameInput.value = "";
+    productDescriptionInput.value = "";
+    productPriceInput.value = "";
+
+    // Reset the sizes
+    resetSizes();
+
+    // Display the alert
+    alert("Data saved somewhere...");
+    } else {
+      alert ("Please fill in the form");
+    }
+}
+
+function logout() {
+  alert("Action is not possible");
+}
+
+function addToCart() {
+    alert(`Adding to cart`);
+    resetSizes();
+}

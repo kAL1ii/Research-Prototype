@@ -10,16 +10,8 @@
                 <h1 class="title-text">STI Bookstore</h1>
                 <div class="navbar_items">
                     <ul>
-                        <!-- Notification Icon to Notification List -->
-                        <li class="notif_box"><a href="#" class="a_parent">
-                            <div class="wrap">
-                                <span class="nav_icon">
-                                    <i class="fa-solid fa-bell"></i>
-                                </span> 
-                            </div>
-                        </a></li>
-                        <!-- Profile Icon to Profile Page -->
-                        <li><a href="#" class="a_parent" onclick="showPage('Profile')"><i class="fa-solid fa-user"></i></a></li>
+                        <!-- Add to Cart Icon to Add to Cart Page -->
+                        <li class="addtocart_box"><a href="#" class="a_parent" onclick="showPage('addtocart')"><i class="fa fa-shopping-cart"></i></a></li>
                         <!--  Moreoption Icon for Dropdown -->
                         <li class="moreoption_box"><a href="#" class="a_parent">
                             <div class="wrap">
@@ -37,7 +29,7 @@
                                         <a href="#" class="dropdown_menu_a"><p>Dark Mode</p></a> <hr>
                                      </li>
                                     <li>
-                                        <a href="#" class="dropdown_menu_a"><p>Log out</p></a>    
+                                        <a href="#" class="dropdown_menu_a" onclick="logout()"><p>Log out</p></a>   
                                     </li>
                                 </ul>
                             </div>
@@ -45,30 +37,50 @@
                     </ul>
                 </div>
             </div>
-            <div class="sidebar">
-                <h2 class="icon-menu">
-                    <i class="fa-solid fa-bars"></i>
-                </h2>
-                <ul>
-                    <!--  Sidebar Home Button to Home Page -->
-                    <li><a href="#" onclick="showPage('Home')"><i class="fa-solid fa-home"></i>Home</a></li>
-                    <!--  Sidebar Products Button to Products Page -->
-                    <li><a href="#" onclick="showPage('Products')"><i class="fa-solid fa-tag"></i>Products</a></li>
-                    <!--  Sidebar Students Button to Student Page -->
-                    <li><a href="#" onclick="showPage('Students')"><i class="fa-solid fa-list"></i>Students</a></li>
-                </ul>
-            </div>
        </header>
        <main>
-            <div class="maincontent" id="maincontent">
-                <!-- The Profile Page -->
-                <div class="page" id="Profile">
-                    <h1>Hello User</h1>
+            <section class="maincontent" id="maincontent">
+                <aside class="sidebar">
+                    <h2 class="icon-menu">
+                        <i class="fa-solid fa-bars"></i>
+                    </h2>
+                    <ul>
+                        <!--  Sidebar Home Button to Home Page -->
+                        <li><a href="#" onclick="showPage('Home')"><i class="fa-solid fa-home"></i>Home</a></li>
+                        <!--  Sidebar Products Button to Products Page -->
+                        <li><a href="#" onclick="showPage('Products')"><i class="fa-solid fa-tag"></i>Products</a></li>
+                    </ul>
+                </aside>
+                <!-- The Add to Cart Page -->
+                <div class="page" id="addtocart">
+                    <h1>Add to Cart</h1>
                 </div>
                 <!-- The Home Page -->
                 <div class="page" id="Home">
-                    <h1>Home Page</h1>
-                </div>
+                    <div class="card_container">
+                        <div class="card">
+                          <img src="image/clo1.png" alt="Product Image">
+                          <div class="card-content">
+                            <h2>Senior High ID-Lace</h2>
+                            <p>Price: 75₱</p>
+                            <button type="button" class="productmanage-btn available-sizes-btn" id="size-toggle" onclick="toggleSizes()">Available Sizes</button>
+                            <div id="size-options" class="size-options">
+                              <button type="button" class="sizebtn" name="size" value="S">S</button>
+                              <button type="button" class="sizebtn" name="size" value="M">M</button>
+                              <button type="button" class="sizebtn" name="size" value="L">L</button>
+                              <button type="button" class="sizebtn" name="size" value="XL">XL</button>
+                              <button type="button" class="sizebtn" name="size" value="XXL">XXL</button>
+                              <button type="button" class="sizebtn" name="size" value="XXXL">XXXL</button>
+                            </div>
+                            <div>
+                              <h3>Quantity: </h3>
+                              <input type="number" id="quantity" name="quantity" min="1" value="1">
+                            </div>
+                            <a href="#" class="btn" onclick="addToCart()">Add to Cart</a>
+                          </div>
+                        </div>
+                    </div>
+                </div>  
                 <!-- Product Page -->
                 <div class="page" id="Products">
                     <div class="product_container" id="table_id">
@@ -82,109 +94,131 @@
                                         <th>Product #</th>
                                         <th>Product</th>
                                         <th>Product Name</th>
+                                        <th>Price</th>
                                         <th>Description</th>
+                                        <th>Sizes</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr>
+                                <tbody id="product_table_body">
+                                    <tr data-product-id="1">
                                         <td>1</td>
-                                        <td><img src="image/clo1.jpg"></td>
-                                        <td>SHS ID-Lace</td>
-                                        <td>N/A</td>
+                                        <td><img src="image/clo1.png"></td>
+                                        <td contenteditable="false">SHS ID-Lace</td>
+                                        <td contenteditable="false">75₱</td>
+                                        <td contenteditable="false">ID-Lace for Senior Highschool Students</td>
+                                        <td contenteditable="false">Default</td>
                                         <td>
-                                            <a href="#"><button><i class="fa-solid fa-pen-to-square"></i></button></a>
-                                            <button><i class="fa-sharp fa-solid fa-trash"></i></button>
+                                            <a href="#" onclick="editProduct(1)"><button><i class="fa-solid fa-pen-to-square"></i></button></a>
+                                            <button onclick="deleteProduct(this)"><i class="fa-sharp fa-solid fa-trash"></i></button>
                                         </td>
                                     </tr>
-                                    <tr>
+                                    <tr data-product-id="2">
                                         <td>2</td>
-                                        <td><img src="image/clo2.jpg"></td>
-                                        <td>SHS ID-Case</td>
-                                        <td>N/A</td>
+                                        <td><img src="image/clo2.png"></td>
+                                        <td  contenteditable="false">SHS ID-Case</td>
+                                        <td contenteditable="false">15₱</td>
+                                        <td  contenteditable="false">ID-Case for Senior Highschool Students</td>
+                                        <td contenteditable="false">Default</td>
                                         <td>
-                                            <a href="#"><button><i class="fa-solid fa-pen-to-square"></i></button></a>
-                                            <button><i class="fa-sharp fa-solid fa-trash"></i></button>
+                                            <a href="#" onclick="editProduct(2)"><button><i class="fa-solid fa-pen-to-square"></i></button></a>
+                                            <button  onclick="deleteProduct(this)"><i class="fa-sharp fa-solid fa-trash"></i></button>
                                         </td>
                                     </tr>
-                                    <tr>
+                                    <tr data-product-id="3">
                                         <td>3</td>
-                                        <td><img src="image/clo4.jpg"></td>
-                                        <td>Tertiary ID-Lace</td>
-                                        <td>N/A</td>
+                                        <td><img src="image/clo1.png"></td>
+                                        <td  contenteditable="false">Tertiary ID-Lace</td>
+                                        <td contenteditable="false">75₱</td>
+                                        <td  contenteditable="false">ID-Lace for Tertiary Students</td>
+                                        <td contenteditable="false">Default</td>
                                         <td>
-                                            <a href="#"><button><i class="fa-solid fa-pen-to-square"></i></button></a>
-                                            <button><i class="fa-sharp fa-solid fa-trash"></i></button>
+                                            <a href="#" onclick="editProduct(3)"><button><i class="fa-solid fa-pen-to-square"></i></button></a>
+                                            <button onclick="deleteProduct(this)"><i class="fa-sharp fa-solid fa-trash"></i></button>
                                         </td>
                                     </tr>
-                                    <tr>
+                                    <tr data-product-id="4">
                                         <td>4</td>
-                                        <td><img src="image/clo3.jpeg"></td>
-                                        <td>Tertiary ID-Case</td>
-                                        <td>N/A</td>
+                                        <td><img src="image/clo2.png"></td>
+                                        <td  contenteditable="false">Tertiary ID-Case</td>
+                                        <td contenteditable="false">15₱</td>
+                                        <td  contenteditable="false">ID-Case for Tertiary Students</td>
+                                        <td contenteditable="false">Default</td>
                                         <td>
-                                            <a href="#"><button><i class="fa-solid fa-pen-to-square"></i></button></a>
-                                            <button><i class="fa-sharp fa-solid fa-trash"></i></button>
+                                            <a href="#" onclick="editProduct(4)"><button><i class="fa-solid fa-pen-to-square"></i></button></a>
+                                            <button onclick="deleteProduct(this)"><i class="fa-sharp fa-solid fa-trash"></i></button>
                                         </td>
                                     </tr>
-                                    <tr>
+                                    <tr data-product-id="5">
                                         <td>5</td>
-                                        <td><img src="image/clo5.webp"></td>
-                                        <td>SHS Uniform-Set-M</td>
-                                        <td>N/A</td>
+                                        <td><img src="image/clo1.png"></td>
+                                        <td  contenteditable="false">SHS Uniform-Set-M</td>
+                                        <td contenteditable="false">1700₱</td>
+                                        <td  contenteditable="false">Senior HighSchool Uniform Set for Male</td>
+                                        <td contenteditable="false">S M L XL XXL</td>
                                         <td>
-                                            <a href="#"><button><i class="fa-solid fa-pen-to-square"></i></button></a>
-                                            <button><i class="fa-sharp fa-solid fa-trash"></i></button>
+                                            <a href="#" onclick="editProduct(5)"><button><i class="fa-solid fa-pen-to-square"></i></button></a>
+                                            <button onclick="deleteProduct(this)"><i class="fa-sharp fa-solid fa-trash"></i></button>
                                         </td>
                                     </tr>
-                                    <tr>
+                                    <tr data-product-id="6">
                                         <td>6</td>
-                                        <td><img src="image/clo6.jpg"></td>
-                                        <td>SHS Uniform-Set-F</td>
-                                        <td>N/A</td>
+                                        <td><img src="image/clo2.png"></td>
+                                        <td  contenteditable="false">SHS Uniform-Set-F</td>
+                                        <td contenteditable="false">1700₱</td>
+                                        <td  contenteditable="false">Senior HighSchool Uniform Set for Female</td>
+                                        <td contenteditable="false">S M L XL XXL</td>
                                         <td>
-                                            <a href="#"><button><i class="fa-solid fa-pen-to-square"></i></button></a>
-                                            <button><i class="fa-sharp fa-solid fa-trash"></i></button>
+                                            <a href="#" onclick="editProduct(6)"><button><i class="fa-solid fa-pen-to-square"></i></button></a>
+                                            <button onclick="deleteProduct(this)"><i class="fa-sharp fa-solid fa-trash"></i></button>
                                         </td>
                                     </tr>
-                                    <tr>
+                                    <tr data-product-id="7">
                                         <td>7</td>
-                                        <td><img src="image/clo7.jpg"></td>
-                                        <td>SHS Uniform-Top-M</td>
-                                        <td>N/A</td>
+                                        <td><img src="image/clo1.png"></td>
+                                        <td contenteditable="false">SHS Uniform-Top-M</td>
+                                        <td contenteditable="false">750₱</td>
+                                        <td contenteditable="false">Senior HighSchool Uniform Top for Male</td>
+                                        <td contenteditable="false">S M L XL XXL</td>
                                         <td>
-                                            <a href="#"><button><i class="fa-solid fa-pen-to-square"></i></button></a>
-                                            <button><i class="fa-sharp fa-solid fa-trash"></i></button>
+                                            <a href="#" onclick="editProduct(7)"><button><i class="fa-solid fa-pen-to-square"></i></button></a>
+                                            <button onclick="deleteProduct(this)"><i class="fa-sharp fa-solid fa-trash"></i></button>
                                         </td>
                                     </tr>
-                                    <tr>
+                                    <tr data-product-id="8">
                                         <td>8</td>
-                                        <td><img src="image/clo6.jpg"></td>
-                                        <td>SHS Uniform-Top-F</td>
-                                        <td>N/A</td>
+                                        <td><img src="image/clo2.png"></td>
+                                        <td  contenteditable="false">SHS Uniform-Top-F</td>
+                                        <td contenteditable="false">750₱</td>
+                                        <td  contenteditable="false">Senior HighSchool Uniform Top for Female</td>
+                                        <td contenteditable="false">S M L XL XXL</td>
                                         <td>
-                                            <a href="#"><button><i class="fa-solid fa-pen-to-square"></i></button></a>
-                                            <button><i class="fa-sharp fa-solid fa-trash"></i></button>
+                                            <a href="#" onclick="editProduct(8)"><button><i class="fa-solid fa-pen-to-square"></i></button></a>
+                                            <button onclick="deleteProduct(this)"><i class="fa-sharp fa-solid fa-trash"></i></button>
                                         </td>
                                     </tr>
-                                    <tr>
+                                    <tr data-product-id="9">
                                         <td>9</td>
-                                        <td><img src="image/clo9.jpg"></td>
-                                        <td>SHS Uniform-Bottom-M</td>
-                                        <td>N/A</td>
+                                        <td><img src="image/clo1.png"></td>
+                                        <td  contenteditable="false">SHS Uniform-Bottom-M</td>
+                                        <td contenteditable="false">750₱</td>
+                                        <td  contenteditable="false">Senior HighSchool Uniform Bottom for Male</td>
+                                        <td contenteditable="false">S M L XL XXL</td>
                                         <td>
-                                            <a href="#"><button><i class="fa-solid fa-pen-to-square"></i></button></a>
-                                            <button><i class="fa-sharp fa-solid fa-trash"></i></button>
+                                            <a href="#" onclick="editProduct(9)"><button><i class="fa-solid fa-pen-to-square"></i></button></a>
+                                            <button onclick="deleteProduct(this)"><i class="fa-sharp fa-solid fa-trash"></i></button>
                                         </td>
                                     </tr>
-                                    <tr>
+                                    <tr data-product-id="10">
                                         <td>10</td>
-                                        <td><img src="image/clo14.jpg"></td>
-                                        <td>SHS Uniform-Bottom-F</td>
-                                        <td>N/A</td>
+                                        <td><img src="image/clo2.png"></td>
+                                        <td  contenteditable="false">SHS Uniform-Bottom-F</td>
+                                        <td contenteditable="false">750₱</td>
+                                        <td  contenteditable="false">Senior HighSchool Uniform Bottom for Female</td>
+                                        <td contenteditable="false">S M L XL XXL</td>
                                         <td>
-                                            <a href="#"><button><i class="fa-solid fa-pen-to-square"></i></button></a>
-                                            <button><i class="fa-sharp fa-solid fa-trash"></i></button>
+                                            <a href="#" onclick="editProduct(10)"><button><i class="fa-solid fa-pen-to-square"></i></button></a>
+                                            <button onclick="deleteProduct(this)"><i class="fa-sharp fa-solid fa-trash"></i></button>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -205,20 +239,35 @@
                                     <label for="name">Product Name</label>
                                 </div>
                                 <div class="input-group">
-                                    <textarea id="Description" rows="8" required></textarea>
+                                    <textarea id="Description" rows="5" required></textarea>
                                     <label for="Description">Product Description</label>
                                 </div>
-                                <button type="button" class="productmanage-btn" onclick="toggleDivs()">Save</button>
-                                <button type="reset"  class="productmanage-btn">Remove</button>
+                                <div class="input-group">
+                                    <input type="number" id="price" required>
+                                    <label for="price">Price</label>
+                                </div>
+                                <div class="input-group">
+                                    <div class="size-container">
+                                        <button type="button" class="productmanage-btn available-sizes-btn" id="size-toggle" onclick="toggleSizes()">Available Sizes</button>
+                                        <div id="size-options" class="size-options">
+                                            <button type="button" class="sizebtn" name="size" value="DEFAULT">Default</button>
+                                            <button type="button" class="sizebtn" name="size" value="S">S</button>
+                                            <button type="button" class="sizebtn" name="size" value="M">M</button>
+                                            <button type="button" class="sizebtn" name="size" value="L">L</button>
+                                            <button type="button" class="sizebtn" name="size" value="XL">XL</button>
+                                            <button type="button" class="sizebtn" name="size" value="XXL">XXL</button>
+                                            <button type="button" class="sizebtn" name="size" value="XXXL">XXXL</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="button" class="productmanage-btn" onclick="saveNewProduct()">Save</button>
+                                <button type="reset"  class="productmanage-btn" onclick="resetSizes()">Remove</button>
+                                <button type="button"  class="productmanage-btn" onclick="toggleDivs()">Go back</button>
                             </form>
                         </div>
                     </div>
                 </div>
-                <!-- Student Page -->
-                <div class="page" id="Students">
-                    <h1> This is the Students Page</h1>
-                </div>
-            </div>
+            </section>
        </main>
        <footer>
 

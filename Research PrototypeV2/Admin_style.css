@@ -19,7 +19,7 @@ body {
     align-items: center;
     top: 10;
     width: 100%;
-    height: 75px;
+    height: 67.5px;
     z-index: 2;
     padding: 0px 30px 0px 20px;
     background: #246BCE;
@@ -70,7 +70,7 @@ body {
 .navbar_items .dropdown_menu {
     position: absolute;
     top: 75px;
-    left: -100px;
+    left: -90px;
     display: none;
     border-radius: 10px;
 }
@@ -80,7 +80,7 @@ body {
 }
 /* Dropdown Contents */
 .navbar_items .dropdown_menu ul li a {
-    width: 218px;
+    width: 190px;
     background: #ffffff;
     border-radius: 10px;
     color: #246BCE;
@@ -94,7 +94,7 @@ body {
 .sidebar {
     position: fixed;
     left: 0;
-    width: 250px;
+    width: 225px;
     height: 100%;
     background-color: #f0f8ff6f;;
     list-style: none;
@@ -135,27 +135,117 @@ body {
 }
 /* Main content is the box that has the page where we switch divs to show different UIs */
 .maincontent {
-    margin-left: 252px;
-    margin-top: 81px;
+    margin-top: 80px;
     color: #55606c;
 }
 /* Page is used to display them as none and later change to block by Javascript */
 .page {
     display: none;
-    padding: 5px 0px 5px 0px;
+    padding: 5px 0px 0px 235px;
 }
+
+.card_container {
+    display: flex;
+}
+.card {
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+  }
+  
+  .card img {
+    width: 100%;
+    height: 200px;
+    margin-bottom: 10px;
+  }
+  
+  .card-content {
+    text-align: center;
+  }
+  
+  .card-content h2 {
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+  
+  .card-content p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 10px;
+  }
+  
+  .size-toggle {
+    margin-bottom: 10px;
+  }
+  
+  .toggle-checkbox {
+    display: none;
+  }
+  
+  .toggle-label {
+    display: inline-block;
+    background-color: #ccc;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #333;
+  }
+  
+  .toggle-label:hover {
+    background-color: #aaa;
+    color: #fff;
+  }
+  
+  .size-options {
+    display: none;
+    margin-top: 5px;
+  }
+  
+  .size-option {
+    margin-bottom: 5px;
+  }
+  
+  .size-option label {
+    margin-left: 5px;
+  }
+  
+  .toggle-checkbox:checked + .toggle-label + .size-options {
+    display: block;
+  }
+  
+  .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 5px;
+    background-color: #246BCE;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  
+  .btn:hover {
+    background-color: #dfdfdf;
+    color: #246BCE;
+  }
+  
                                                         
 /* This is the Product Page CSS */
-
 .product_container {
     width: 100%;
     border-radius: 20px;
     background:linear-gradient(#246bce,#ffffff,#ffffff,#ffffff);
     margin-right: 10px;
-    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: 100px;
 }
 
 .Products_table_section {
@@ -282,36 +372,42 @@ body {
 ::-webkit-scrollbar-thumb {
     box-shadow: inset 0 0 6px rgb(0,0,0,0.3);
 }
+
+/* This is the Product Management CSS */
 .box-box {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: 200px;
-    margin-top: 125;
+    margin-left: 100px;
     width: 20%;
-    height: 60vh;
     border:1px solid rgb(255, 255, 255);
     border-radius: 20px;
     background:linear-gradient(#ffffff,#F0F8FF);
     box-shadow: 0 20px 35px #246bce27; 
 }
+
 .box {
-    margin-top:  calc(5vh + 20px);;
+    margin-top:  3vh;
     margin-left: calc(20vh + 20px);
-    width: 200%;
-    height: 64vh;
+    width: 250%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
+/* This is the css width of the form */
 form {
     width: 90%;
     max-width: 600px;
 }
+
+/* This is for the margin of the input group */
 .input-group {
     margin-bottom: 30px;
     position: relative;
 }
+
+/* This css is for the Input and the textarea for the product management */
 input, textarea {
     width: 100%;
     padding: 10px;
@@ -323,12 +419,18 @@ input, textarea {
     font-size: 15px;
     box-shadow: 0 5px 5px #246bce27;
 }
+
+/* This is the background color of the input hover effect */
 input:hover{
     background-color: #246bce11;
 }
+
+/* This is the background color of the hover option of the textarea */
 textarea:hover{
     background-color: #246bce11;
 }
+
+/* This is the CSS for the label */
 label {
     height: 100%;
     position: absolute;
@@ -340,6 +442,8 @@ label {
     cursor: text;
     transition: 0.2s;
 }
+
+/* This is the CSS for the Save and Cancle button */
 .productmanage-btn {
     padding: 10px 0;
     color: #246BCE;
@@ -350,12 +454,17 @@ label {
     width: 20%;
     cursor: pointer;
     box-shadow: 0 5px 5px #246bce27;
+    font-weight: bold;
 }
+
+/* This is for the hover CSS of the save and cancle button */
 .productmanage-btn:hover {
     color: #ffffff;
     background-color: #246BCE;
     transform: translateY(-5px);
 }
+
+/* This is the css used for the label to make it hover obove the box when you type inside of the box */
 input:focus~label,
 input:valid~label,
 textarea:focus~label,
@@ -363,10 +472,68 @@ textarea:valid~label {
     top: -35px;
     font-size: 14px;
 }
+
+/* This CSS is for the form and the P of the product management */
 .box-box form p {
-    margin-bottom: 60px;
+    margin-bottom: 20px;
     font-size: 30px;
     font-weight: 600;
     color: #246BCE;
     text-align: center;
 }
+
+/* Product Management Size option */
+.size-options {
+    display: none;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+  
+.size-options.show {
+    display: flex;
+}
+
+/* Available Sizes Button */
+.available-sizes-btn {
+    padding: 10px 20px;
+    color: #246BCE;
+    outline: none;
+    background-color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    width: 100%;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    box-shadow: 0 5px 5px #246bce27;
+}
+  
+.available-sizes-btn:hover {
+    background-color: #19549c;
+    transform: translateY(-5px);
+}
+
+.sizebtn {
+    margin-top: 4px;
+    padding: 10px 15px 10px 15px;
+    color: #246BCE;
+    outline: none;
+    background-color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    width: 100%;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    box-shadow: 0 5px 5px #246bce27;
+}
+ 
+.sizebtn:hover {
+    background-color: #ffffff;
+    transform: translateY(-5px);
+}
+.sizebtn.active {
+    background-color: #246BCE;
+    color: #ffffff;
+}
+
